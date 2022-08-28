@@ -1,39 +1,44 @@
 enable
-configurate terminal
+configure terminal
 !
 hostname R1
-ip name-server 152.66.248.12
-ip default-gateway 10.255.255.1
 no ip domain lookup
 line console 0
 logging synchronous
 !
-interface GigabitEthernet6
+interface FastEthernet0/0
 no shutdown
 !
-interface GigabitEthernet6.112
+interface FastEthernet0/0.112
 encapsulation dot1Q 112
 description R1-to-R2
 ip address 10.0.12.1 255.255.255.252
 !
-interface GigabitEthernet6.113
+interface FastEthernet0/0.113
 encapsulation dot1Q 113
 description R1-to-R3
 ip address 10.0.13.1 255.255.255.252
 !
-interface GigabitEthernet6.211
+interface FastEthernet0/0.211
 description R1-to-OVS1
 encapsulation dot1Q 211
 ip address 10.0.11.1 255.255.255.252
 !
-interface GigabitEthernet6.999
-description vlan-to-internet
-encapsulation dot1Q 999
-ip address 10.255.255.11 255.255.255.0
+!interface FastEthernet0/0.999
+!description vlan-to-internet
+!encapsulation dot1Q 999
+!ip address 192.168.122.11 255.255.255.0
 !
 exit
 router ospf 1
+router-id 10.10.10.10
 network 10.0.12.0 255.255.255.252 area 0
 network 10.0.13.0 255.255.255.252 area 0
 network 10.0.11.0 255.255.255.252 area 0
+!
+interface FastEthernet0/1
+ip address 192.168.122.11 255.255.255.0
+no shutdown
+ip route 0.0.0.0 0.0.0.0 192.168.122.1
+do ping 8.8.8.8
 do write
