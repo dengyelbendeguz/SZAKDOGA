@@ -74,4 +74,4 @@ dokumentálni (heti haladás)
 
 ## Linkek nagyobb fájlokhoz (50+ MB)
 
-- [szakdoga_export.gns3project](https://bmeedu-my.sharepoint.com/personal/dengyel_b_edu_bme_hu/_layouts/15/onedrive.aspx?ga=1&id=%2Fpersonal%2Fdengyel_b_edu_bme_hu%2FDocuments%2FÖnlab%2Fszakdoga_export%2Egns3project&parent=%2Fpersonal%2Fdengyel_b_edu_bme_hu%2FDocuments%2FÖnlab)
+- [szakdoga.gns3project](https://bmeedu-my.sharepoint.com/personal/dengyel_b_edu_bme_hu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdengyel%5Fb%5Fedu%5Fbme%5Fhu%2FDocuments%2F%C3%96nlab%2Fszakdoga%2Egns3project&parent=%2Fpersonal%2Fdengyel%5Fb%5Fedu%5Fbme%5Fhu%2FDocuments%2F%C3%96nlab)
