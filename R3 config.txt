@@ -1,51 +1,56 @@
 enable
-configurate terminal
+configure terminal
 !
 hostname R3
-ip name-server 152.66.248.12
-ip default-gateway 10.255.255.1
 no ip domain lookup
 line console 0
 logging synchronous
 !
-interface GigabitEthernet6
+interface FastEthernet0/0
 no shutdown
 !
-interface GigabitEthernet6.113
+interface FastEthernet0/0.113
 encapsulation dot1Q 113
 description R3-to-R1
 ip address 10.0.13.2 255.255.255.252
 !
-interface GigabitEthernet6.123
+interface FastEthernet0/0.123
 encapsulation dot1Q 123
 description R3-to-R2
 ip address 10.0.23.2 255.255.255.252
 !
-interface GigabitEthernet6.134
+interface FastEthernet0/0.134
 description R3-to-R4
 encapsulation dot1Q 134
 ip address 10.0.34.1 255.255.255.252
 !
-interface GigabitEthernet6.223
+interface FastEthernet0/0.223
 description R3-to-OVS2
 encapsulation dot1Q 223
 ip address 10.0.32.1 255.255.255.252
 !
-interface GigabitEthernet6.213
+interface FastEthernet0/0.213
 description R3-to-OVS1
 encapsulation dot1Q 213
 ip address 10.0.31.1 255.255.255.252
 !
-interface GigabitEthernet6.999
-description vlan-to-internet
-encapsulation dot1Q 999
-ip address 10.255.255.33 255.255.255.0
+!interface FastEthernet0/0.999
+!description vlan-to-internet
+!encapsulation dot1Q 999
+!ip address 192.168.122.33 255.255.255.0
 !
 exit
 router ospf 1
+router-id 30.30.30.30
 network 10.0.13.0 255.255.255.252 area 0
 network 10.0.23.0 255.255.255.252 area 0
 network 10.0.31.0 255.255.255.252 area 0
 network 10.0.32.0 255.255.255.252 area 0
 network 10.0.34.0 255.255.255.252 area 0
+!
+interface FastEthernet0/1
+ip address 192.168.122.33 255.255.255.0
+no shutdown
+ip route 0.0.0.0 0.0.0.0 192.168.122.1
+do ping 8.8.8.8
 do write
