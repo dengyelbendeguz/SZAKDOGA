@@ -1,0 +1,128 @@
+ena
+conf t
+config-register 0x2142
+end
+reload
+no
+//enter
+no
+ena
+conf t
+config-register 0x2102
+end
+write memory
+reload
+
+
+
+Linux:
+	ip link set dev ens160 up
+	ip link add link ens160 name ens160.999 type vlan id 999
+	ip addr add 10.255.255.111/24 brd 10.255.255.255 dev ens160.999
+	ip link set dev ens160.999 up
+	ip route add default via 10.255.255.1
+
+
+Ryu:
+	ip link add link eth0 name eth0.999 type vlan id 999
+	ip addr add 172.17.0.20/16 brd 172.17.255.255 dev eth0.999
+	ip link set dev eth0.999 up
+	ip route add default via 172.17.0.1
+
+
+
+
+
+###########################
+###	AUTO VLAN UP CONFIG	###
+###########################
+
+#! /bin/bash
+
+linux1() {
+
+ip link set dev ens160 up
+ip link add link ens160 name ens160.999 type vlan id 999
+ip addr add 10.255.255.111/24 brd 10.255.255.255 dev ens160.999
+ip link set dev ens160.999 up
+ip route add default via 10.255.255.1
+
+echo "Vlan 999 setup for linux1 is complete"
+}
+
+linux2() {
+
+ip link set dev ens160 up
+ip link add link ens160 name ens160.999 type vlan id 999
+ip addr add 10.255.255.222/24 brd 10.255.255.255 dev ens160.999
+ip link set dev ens160.999 up
+ip route add default via 10.255.255.1
+
+echo "Vlan 999 setup for linux2 is complete"
+}
+
+case $1 in
+	"linux1")
+		shift
+		linux1
+		exit 0
+		;;
+	"linux2")
+		shift
+		linux2
+		exit 0
+		;;	
+    *)
+        echo >&2 "$UTIL: unknown command \"$1\" (possible arguments: linux1, linux2)"
+        exit 1
+        ;;
+esac
+
+
+
+
+
+
+###########################
+###	AUTO MOUNT CONFIG	###
+###########################
+
+#! /bin/bash
+
+echo "Is the .iso mounted in VMRC? If yes, press ENTER"
+read
+
+linux1() {
+
+mkdir /home/linux1/mount
+mkdir /home/linux1/scripts
+mount /dev/sr0 /home/linux1/mount
+cp -r /home/linux1/mount /home/linux1/scripts
+umount -f /dev/sr0
+}
+
+linux2() {
+
+mkdir /home/linux2/mount
+mkdir /home/linux2/scripts
+mount /dev/sr0 /home/linux2/mount
+cp -r /home/linux2/mount /home/linux2/scripts
+umount -f /dev/sr0
+}
+
+case $1 in
+	"linux1")
+		shift
+		linux1
+		exit 0
+		;;
+	"linux2")
+		shift
+		linux2
+		exit 0
+		;;	
+    *)
+        echo >&2 "$UTIL: unknown command \"$1\" (possible arguments: linux1, linux2)"
+        exit 1
+        ;;
+esac
