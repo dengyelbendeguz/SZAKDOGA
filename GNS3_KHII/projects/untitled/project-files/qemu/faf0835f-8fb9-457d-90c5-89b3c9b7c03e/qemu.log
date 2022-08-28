@@ -1,0 +1,4 @@
+Start QEMU with /usr/bin/qemu-system-x86_64 -name MikroTikCHR6.41.4-2 -m 128M -smp cpus=1,sockets=1 -enable-kvm -machine smm=off -boot order=c -drive file=/home/bende/GNS3_KHII/projects/untitled/project-files/qemu/faf0835f-8fb9-457d-90c5-89b3c9b7c03e/hda_disk.qcow2,if=virtio,index=0,media=disk,id=drive0 -uuid faf0835f-8fb9-457d-90c5-89b3c9b7c03e -serial telnet:127.0.0.1:5004,server,nowait -monitor tcp:127.0.0.1:36903,server,nowait -net none -device virtio-net-pci,mac=0c:f0:83:5f:00:00,netdev=gns3-0 -netdev socket,id=gns3-0,udp=127.0.0.1:10011,localaddr=127.0.0.1:10010 -device virtio-net-pci,mac=0c:f0:83:5f:00:01,netdev=gns3-1 -netdev socket,id=gns3-1,udp=127.0.0.1:10013,localaddr=127.0.0.1:10012 -nographic
+
+Execution log:
+qemu-system-x86_64: terminating on signal 15 from pid 72957 (/usr/share/gns3/gns3-server/bin/python)

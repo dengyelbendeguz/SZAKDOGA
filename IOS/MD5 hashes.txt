@@ -1,0 +1,6 @@
+351190de8764263e85a2b50718f394fd *c1700-adventerprisek9-mz.124-15.T14.bin
+3ed8d56a8757771105a56070e4147716 *c1700-adventerprisek9-mz.124-25d.bin
+42baf17af10d9a1471bf542f0bfd07c7 *c3725-adventerprisek9-mz.124-15.T14.bin
+ac3d313d3caff5beeee244b81d2c024c *c3725-adventerprisek9-mz.124-25d.bin
+3a5234f73ce60441855e80d7886895a8 *c7200-adventerprisek9-mz.124-24.T8.bin
+79ffe4050b2cac60d51af8b953bb02b7 *c7200-adventerprisek9-mz.152-4.S3.bin

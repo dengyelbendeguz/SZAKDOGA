@@ -1,0 +1,1 @@
+Formatting '/home/bende/GNS3/projects/onlab/project-files/qemu/69da378a-4794-4059-bb0b-1a1198d0ad52/hda_disk.qcow2', fmt=qcow2 size=524288000 backing_file=/home/bende/GNS3/images/QEMU/frr-8.1.0.qcow2 backing_fmt=qcow2 cluster_size=65536 lazy_refcounts=off refcount_bits=16

@@ -1,0 +1,20 @@
+Aug 12 11:17:58.801 HYPERVISOR: Release 0.2.22-amd64/Linux (tag 2022052400)
+Aug 12 11:17:58.801 HYPERVISOR: Started on IP = localhost, TCP port = 33907.
+Aug 12 11:17:58.811 HYPERVISOR: exec_cmd: hypervisor version 
+Aug 12 11:17:58.811 HYPERVISOR: exec_cmd: hypervisor working_dir /home/bende/GNS3/projects/onlab/project-files/dynamips 
+Aug 12 11:17:58.811 GENERAL: working_dir=/home/bende/GNS3/projects/onlab/project-files/dynamips
+Aug 12 11:17:58.811 HYPERVISOR: exec_cmd: ethsw create Switch1 
+Aug 12 11:17:58.986 HYPERVISOR: exec_cmd: nio create_udp udp-8c736291-11a4-4a2c-8234-303739dc1762 10009 127.0.0.1 10008 
+Aug 12 11:17:58.986 HYPERVISOR: exec_cmd: ethsw add_nio Switch1 udp-8c736291-11a4-4a2c-8234-303739dc1762 
+Aug 12 11:17:59.001 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-8c736291-11a4-4a2c-8234-303739dc1762 1 
+Aug 12 11:17:59.025 HYPERVISOR: exec_cmd: nio create_udp udp-ccf7f825-3e11-490a-9199-d625dad7cf66 10010 127.0.0.1 10011 
+Aug 12 11:17:59.026 HYPERVISOR: exec_cmd: ethsw add_nio Switch1 udp-ccf7f825-3e11-490a-9199-d625dad7cf66 
+Aug 12 11:17:59.041 HYPERVISOR: exec_cmd: ethsw set_access_port Switch1 udp-ccf7f825-3e11-490a-9199-d625dad7cf66 1 
+Aug 12 11:18:20.163 HYPERVISOR: exec_cmd: ethsw remove_nio Switch1 udp-8c736291-11a4-4a2c-8234-303739dc1762 
+Aug 12 11:18:20.186 HYPERVISOR: exec_cmd: nio delete udp-8c736291-11a4-4a2c-8234-303739dc1762 
+Aug 12 11:18:20.206 HYPERVISOR: exec_cmd: ethsw remove_nio Switch1 udp-ccf7f825-3e11-490a-9199-d625dad7cf66 
+Aug 12 11:18:20.217 HYPERVISOR: exec_cmd: nio delete udp-ccf7f825-3e11-490a-9199-d625dad7cf66 
+Aug 12 11:18:20.240 HYPERVISOR: exec_cmd: ethsw delete Switch1 
+Aug 12 11:18:20.242 HYPERVISOR: exec_cmd: hypervisor stop 
+Aug 12 11:18:20.338 HYPERVISOR: Stopped.
+Aug 12 11:18:20.338 GENERAL: reset done.
