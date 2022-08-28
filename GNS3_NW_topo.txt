@@ -1,0 +1,19 @@
+GNS3 környezet:
+Cloud1:
+	internet
+	virbr0 interfész: 192.168.122.1
+Ethernet Switch 1:
+	sok port (pl 50)
+	mindegy, mit hova kötünk benne, "buta switch"
+4 db Cisco router:
+	shade helyről van az image
+	Cisco 3725 124-25.T14
+	configok gitben
+	switchen keresztül kommunikálnka, nincs P2P
+	f0/0: vlanok, egymással sikeresen kommunikálnak
+	f0/1: wan port, itt a 192.168.122.0/24 hálózaton kommunikálnak a Cloud1.gyel
+	korábbi konfighoz képesti változás:
+		vlan999 nincs, helyett a f0/1 lát a netre
+		default-gw nincs
+		default dns sincs
+		ospf router id van
