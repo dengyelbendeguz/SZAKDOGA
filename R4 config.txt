@@ -1,27 +1,35 @@
 enable
-configurate terminal
+configure terminal
 !
 hostname R4
-ip name-server 152.66.248.12
-ip default-gateway 10.255.255.1
 no ip domain lookup
 line console 0
 logging synchronous
 !
-interface GigabitEthernet6
+interface FastEthernet0/0
 no shutdown
 !
-interface GigabitEthernet6.134
+interface FastEthernet0/0.134
 encapsulation dot1Q 134
 description R4-to-R3
 ip address 10.0.34.2 255.255.255.252
 !
-interface GigabitEthernet6.999
-description vlan-to-internet
-encapsulation dot1Q 999
-ip address 10.255.255.44 255.255.255.0
+!interface FastEthernet0/0.999
+!description vlan-to-internet
+!encapsulation dot1Q 999
+!ip address 192.168.122.44 255.255.255.0
 !
-exit
+!exit
+!ip route 0.0.0.0 0.0.0.0 192.168.122.1
+!
 router ospf 1
+router-id 40.40.40.40
 network 10.0.34.0 255.255.255.252 area 0
+!default-information originate
+!
+interface FastEthernet0/1
+ip address 192.168.122.44 255.255.255.0
+no shutdown
+ip route 0.0.0.0 0.0.0.0 192.168.122.1
+do ping 8.8.8.8
 do write
