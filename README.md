@@ -1,8 +1,5 @@
-
 Ryu alpineban
-gitembe migrálni
 új topológia doookumentálni + rajz
-új router configok felrakni
 
 ############################################################################################################################
 
