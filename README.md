@@ -9,22 +9,30 @@
 
 ### TODOs
 - Ryu alpineban
-- új topológia doookumentálni + rajz
+- új topológia doookumentálni + rajz (GNS3_NW_topo.txt)
 
 ---
 
-más megoldások (körbekérdezni egyetemen, sch-ben, Marci ismerősei?)
-	IPVLAN? (pls no)
+más megoldások
+- IPVLAN? (pls no)
+- https://www.youtube.com/watch?v=bKFMS5C4CG0
+- https://gist.github.com/bbl/dad5ea94cdf8f384bb7a47dd4869b2eb
+- https://www.youtube.com/watch?v=nGSNULpHHZc&ab_channel=Docker
 
-ansible megtanulni (önlabjegyzet)
-
-https://www.youtube.com/watch?v=bKFMS5C4CG0
-
-https://www.youtube.com/watch?v=IyqopOhN
-
-fr routing elmélyedni
 
 <br>
+
+### Ryu::
+- ip cím konfig: 192.168.122.111
+- default route
+- dns konfig
+- ezután apt update + többi cucc ryu_init.sh-ból
+
+File felmásolás ryura:
+- ryu configban (gns3) létrehozni shareed foldert
+- jobb klikk, file manager
+- itt berakni shared folderbe a cuccokat
+- ryuból ezeket eléred a gns3volumes mappában
 
 ### Internet GNS 3:
 - cloud (virbr0 interfész)
@@ -37,19 +45,11 @@ fr routing elmélyedni
 
 <br>
 
-https://gist.github.com/bbl/dad5ea94cdf8f384bb7a47dd4869b2eb
-
-https://www.youtube.com/watch?v=nGSNULpHHZc&ab_channel=Docker
-
-master script írni
-
 ---
 
 https://www.hit.bme.hu/edu/project/data?id=19952
 
 https://www.hit.bme.hu/edu/project/data?id=19938
-
-friss tartalmak driveba rakni
 
 <br>
 
