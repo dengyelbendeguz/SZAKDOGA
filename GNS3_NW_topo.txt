@@ -9,6 +9,19 @@ A GNS3 környezetben ninc szükség a 2 Linux VM-re, mert jelen környezet docke
 pl. a Ryu-t, OVS-eket, ezáltal kisebb a komplexitás, könnyebb a management, mint pl. file felmásolása,
 terminálba/ból másolás stb.
 
+A router konfigok mentve vannak az eszközön, a Ryu és OVS konfigok mentése egyenlőre nem megoldott,
+ezeken minden indulásnál ki kell adni a parancsokat.
+
+Konfigurációs fileok:
+    R1 config.txt
+    R2 config.txt
+    R3 config.txt
+    R4 config.txt
+    OVS1_config.sh
+    OVS2_config.sh
+    OVS3_config.sh
+    OVS4_config.sh
+    RYU_config.sh
 
 Cloud1:
 	internet
