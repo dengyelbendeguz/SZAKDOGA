@@ -23,11 +23,11 @@
 
 ### TODOs
 - PULL!!!
-- ryu működése
+- MARCI: ryu működése
+- MARCI: topology kép beszúrása GNS3_NW_topo.txt-be
+- BENDE: router ovs ping?
+- BENDE: save conifg on OVS and Ryu
 - következő teendők kitűzése
-- router ovs ping?
-- save conifg on all devices???
-- topology kép beszúrása GNS3_NW_topo.txt-be
 - projekt feltölteni
 - COMMIT AND PUSH!!!
 
