@@ -8,13 +8,19 @@
 
 ## GNS3 topológia
 
-![](pictures/gns3_topology.png)
-
+![](pictures/GNS3_topology.png)
 ---
 
 ### TODOs
-- Ryu alpineban
-- új topológia doookumentálni + rajz (GNS3_NW_topo.txt)
+- ryu működése
+- eddigi haladás dokumentálása
+- projekt feltölteni
+- következő teendők kitűzése
+- router ovs ping?
+- save conifg on all devices???
+- topology kép beszúrása
+- set port vlan tag: https://medium.com/@arrosid/vlan-configuration-on-open-vswitch-83459d8c0cfc
+- set port ip address: https://docs.openvswitch.org/en/latest/faq/vlan/
 
 ---
 
