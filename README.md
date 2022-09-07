@@ -1,4 +1,4 @@
-# Szakdolgozat 
+# [Szakdolgozat](thesis_szabo_csaba.pdf) 
 
 ---
 
