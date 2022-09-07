@@ -4,6 +4,11 @@
 
 ### [OneDrive](https://bmeedu-my.sharepoint.com/personal/dengyel_b_edu_bme_hu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdengyel_b_edu_bme_hu%2FDocuments%2FÖnlab&ga=1)
 
+---
+
+## GNS3 topológia
+
+![](pictures/gns3_topology.png)
 
 ---
 
