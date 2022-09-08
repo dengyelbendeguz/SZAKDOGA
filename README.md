@@ -15,7 +15,7 @@
 
 ---
 
-## GNS3 topológia
+## [GNS3 topológia](GNS3_NW_topo.md)
 
 ![](pictures/GNS3_topology.png)
 
@@ -24,7 +24,6 @@
 ### TODOs
 - PULL!!!
 - MARCI: ryu működése
-- MARCI: topology kép beszúrása GNS3_NW_topo.txt-be
 - BENDE: router ovs ping?
 - BENDE: save conifg on OVS and Ryu
 - következő teendők kitűzése
