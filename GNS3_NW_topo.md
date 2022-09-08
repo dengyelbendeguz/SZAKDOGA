@@ -20,15 +20,15 @@ ezeken minden indulásnál ki kell adni a parancsokat.
 ![](pictures/GNS3_topology.png)
 
 ## Konfigurációs fileok:
-- [R1 config.txt](R1 config.txt)
-- [R2 config.txt](R2 config.txt)
-- [R3 config.txt](R3 config.txt)
-- [R4 config.txt](R4 config.txt)
-- [OVS1_config.sh](OVS1_config.sh)
-- [OVS2_config.sh](OVS2_config.sh)
-- [OVS3_config.sh](OVS3_config.sh)
-- [OVS4_config.sh](OVS4_config.sh)
-- [RYU_config.sh](RYU_config.sh)
+- R1 config.txt
+- R2 config.txt
+- R3 config.txt
+- R4 config.txt
+- OVS1_config.sh
+- OVS2_config.sh
+- OVS3_config.sh
+- OVS4_config.sh
+- RYU_config.sh
 
 ## Cloud1:
 
