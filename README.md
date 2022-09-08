@@ -26,6 +26,7 @@
 - MARCI: ryu működése
 - BENDE: router ovs ping?
 - BENDE: save conifg on OVS and Ryu
+- BENDE: szakdoag jegyzet leszedni a repóból
 - következő teendők kitűzése
 - projekt feltölteni
 - COMMIT AND PUSH!!!
