@@ -13,7 +13,7 @@ echo nameserver 8.8.8.8 > /etc/resolv.conf
 
 # initial setup and downloading neccesary tools
 apt update -y
-apt -y install vim
+# apt -y install vim
 apt -y install nano
 apt -y install iputils-ping
 apt -y install net-tools
