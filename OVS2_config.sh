@@ -22,3 +22,4 @@ ovs-vsctl set port eth7 tag=223
 
 # verify
 ovs-vsctl show
+ping 172.16.0.10 -c 4

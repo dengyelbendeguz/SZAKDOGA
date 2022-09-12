@@ -17,3 +17,4 @@ ovs-vsctl set port eth3 tag=334
 
 # verify
 ovs-vsctl show
+ping 172.16.0.10 -c 4
