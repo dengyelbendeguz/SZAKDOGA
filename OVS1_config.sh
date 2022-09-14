@@ -18,11 +18,11 @@ ovs-vsctl set port eth3 tag=313
 # OVS link to Routers
 ip addr add 10.0.11.2/30 dev eth6
 ip link set eth6 up
-ovs-vsctl set port eth6 tag=211
+#ovs-vsctl set port eth6 tag=211
 
 ip addr add 10.0.31.2/30 dev eth7
 ip link set eth7 up
-ovs-vsctl set port eth7 tag=213
+#ovs-vsctl set port eth7 tag=213
 
 # verify
 ovs-vsctl show

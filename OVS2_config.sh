@@ -18,7 +18,7 @@ ovs-vsctl set port eth4 tag=324
 # OVS link to Routers
 ip addr add 10.0.32.2/30 dev eth7
 ip link set eth7 up
-ovs-vsctl set port eth7 tag=223
+# ovs-vsctl set port eth7 tag=223
 
 # verify
 ovs-vsctl show

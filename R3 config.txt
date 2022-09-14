@@ -24,15 +24,25 @@ description R3-to-R4
 encapsulation dot1Q 134
 ip address 10.0.34.1 255.255.255.252
 !
-interface FastEthernet0/0.223
-description R3-to-OVS2
-encapsulation dot1Q 223
-ip address 10.0.32.1 255.255.255.252
+!interface FastEthernet0/0.223
+!description R3-to-OVS2
+!encapsulation dot1Q 223
+!ip address 10.0.32.1 255.255.255.252
 !
-interface FastEthernet0/0.213
+!interface FastEthernet0/0.213
+!description R3-to-OVS1
+!encapsulation dot1Q 213
+!ip address 10.0.31.1 255.255.255.252
+!
+interface FastEthernet2/0
+description R3-to-OVS2
+ip address 10.0.32.1 255.255.255.252
+no shutdown
+!
+interface FastEthernet1/0
 description R3-to-OVS1
-encapsulation dot1Q 213
 ip address 10.0.31.1 255.255.255.252
+no shutdown
 !
 !interface FastEthernet0/0.999
 !description vlan-to-internet

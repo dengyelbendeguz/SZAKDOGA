@@ -19,10 +19,15 @@ encapsulation dot1Q 113
 description R1-to-R3
 ip address 10.0.13.1 255.255.255.252
 !
-interface FastEthernet0/0.211
+!interface FastEthernet0/0.211
+!description R1-to-OVS1
+!encapsulation dot1Q 211
+!ip address 10.0.11.1 255.255.255.252
+!
+interface FastEthernet1/0
 description R1-to-OVS1
-encapsulation dot1Q 211
 ip address 10.0.11.1 255.255.255.252
+no shutdown
 !
 !interface FastEthernet0/0.999
 !description vlan-to-internet
