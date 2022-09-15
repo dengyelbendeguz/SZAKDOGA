@@ -21,7 +21,7 @@
 
 ---
 
-### TODOs
+### TODO
 - PULL!!!
 - MARCI: ryu működése
 - BENDE: save conifg on OVS and Ryu
