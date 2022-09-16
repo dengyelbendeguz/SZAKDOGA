@@ -18,7 +18,7 @@ ezeken minden indulásnál ki kell adni a parancsokat (erről részletek lejjebb
 ## Topológia:
 
 GNS3
-![](pictures/GNS3_topology.png)
+![](pictures/GNS3_VPCS_topology.png)
 
 L3
 ![](pictures/network_ip_plan.png)

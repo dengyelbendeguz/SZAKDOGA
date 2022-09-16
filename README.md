@@ -17,7 +17,7 @@
 
 ## [GNS3 topológia](GNS3_NW_topo.md)
 
-![](pictures/GNS3_topology.png)
+![](pictures/GNS3_VPCS_topology.png)
 
 ---
 
