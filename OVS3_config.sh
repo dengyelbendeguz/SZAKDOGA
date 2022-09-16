@@ -15,6 +15,12 @@ ip addr add 172.16.34.2/29 dev eth4
 ip link set eth4 up
 ovs-vsctl set port eth4 tag=334
 
+# VPCS connection
+ip addr add 192.168.3.2/29 dev eth5
+ip link set eth5 up
+ovs-vsctl set port eth5 tag=533
+
 # verify
 ovs-vsctl show
-ping 172.16.0.10 -c 4
+ping 172.16.0.10 -c 2
+ping 192.168.3.3 -c 2

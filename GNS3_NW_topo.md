@@ -111,6 +111,7 @@ A konténer és a host (GNS3) megosztott mappájába bemásoljuk a `RYU_config.s
 - az ethernet switchen keresztül kommunikálnak azok az OVS-ek, amelyek routerekkel is kapcsolatban vannak
 - nincs közvetlen internet hozzáférésük
 - az `eth0` interfész mindegyik az SDN management lan, ez is az ethernet switchbe van kötve
+- az `eth5` interfész mindegyik az SDN és a hozzá tartozó VPCs közti kapcsolat portja
 - OVS port leképezés:
   - " eth x goes to ovs x " szerint, azaz az aktuális OVS `eth*` interfésze a szomszédos `OVS*` felé
   van kötve, ahol a `*` a port/OVS száma
@@ -123,6 +124,15 @@ A konténer és a host (GNS3) megosztott mappájába bemásoljuk a `RYU_config.s
 A konténer és a host (GNS3) megosztott mappájába bemásoljuk a `OVS*_config.sh` scriptet (részletezeve [itt](#docker)), ahol a `*` az ovs számát jelöli. Eztután a `./gns3volumes/init_script/OVS*` scriptet futtatva kész az eszköz konfigurálása. 
 
 FIGYELEM: a futtatási parancs helyesen lefut minden OVS-en a saját, általunk felmásolt konfiggal, azonban a teljes parancs így néz ki (pl az OVS1-en): `./gns3volumes/init_script/OVS1_config.sh`. Ezzel is ugyan az a script fut, de ekkor figyelni kell minden OVS-en, hogy a megfelelő parancsot adjuk ki, ahol az OVS száma helyes.
+
+## VPCs:
+
+- a hostokat a GNS3 VPCs (Virtual PC simulator) nodejaival oldottuk meg
+- mindegyik PC a hozzá tartozó OVS `eth5` portjához csatlakozik
+- a PC-k megtartják konfigurációjukat leállítás után is a `save` parancs kiadása után
+- példa konfiguráció (a PC1-en):
+- - `ip 192.168.1.3/29`
+- - `save`
 
 ### A környezet kialakításához használt hasznos linkek:
 - set port vlan tag: https://medium.com/@arrosid/vlan-configuration-on-open-vswitch-83459d8c0cfc
