@@ -77,7 +77,7 @@ Korábbi konfighoz képesti változás:
 - default dns sincs
 - ospf router id van
 
-## Docker container file copy and run: {#docker}
+## Docker container file copy and run:
 
 A GNS3 lehetővé teszi konténerek futtatását, azokat előlünk teljesen elfedve (transzparens módon), számunkra önálló eszközként megjelenítve. A konténerekkel így fileokat is meg tudunk osztani. Ennek egyik módja a shared folder, mely megosztási mód részletei az alábbiak:
 - az eszközön (pl OVS) `jobb egér/Configure/Advanced/ itt a megfelelő mezőbe elnevezünk egy mappát` (többet is lehet)
@@ -101,7 +101,7 @@ A megosztott mappában található tartalom nem veszik el a konténer leállása
   - "internet" lan, ezen keresztül közvetve (`Cloud1`) lát ki az internetre
   - azért van rá szükség, mert bizonyos eszközöket (pl. python) telepíteni kellett rá
 
-A konténer és a host (GNS3) megosztott mappájába bemásoljuk a `RYU_config.sh` scriptet (részletezeve [itt](#docker)). Eztután a `./../gns3volumes/ryu_code/RYU_config.sh` scriptet futtatva kész az eszköz konfigurálása.
+A konténer és a host (GNS3) megosztott mappájába bemásoljuk a `RYU_config.sh` scriptet (részletezeve [itt](#docker-container-file-copy-and-run)). Eztután a `./../gns3volumes/ryu_code/RYU_config.sh` scriptet futtatva kész az eszköz konfigurálása.
 
 
 ## OVS switchek:
@@ -121,7 +121,7 @@ A konténer és a host (GNS3) megosztott mappájába bemásoljuk a `RYU_config.s
   - `R3`-ba az `eth7` megy mindkét OVS-ről
   - `R1`-be az `eth6` megy az OVS1-ből
 
-A konténer és a host (GNS3) megosztott mappájába bemásoljuk a `OVS*_config.sh` scriptet (részletezeve [itt](#docker)), ahol a `*` az ovs számát jelöli. Eztután a `./gns3volumes/init_script/OVS*` scriptet futtatva kész az eszköz konfigurálása. 
+A konténer és a host (GNS3) megosztott mappájába bemásoljuk a `OVS*_config.sh` scriptet (részletezeve [itt](#docker-container-file-copy-and-run)), ahol a `*` az ovs számát jelöli. Eztután a `./gns3volumes/init_script/OVS*` scriptet futtatva kész az eszköz konfigurálása. 
 
 FIGYELEM: a futtatási parancs helyesen lefut minden OVS-en a saját, általunk felmásolt konfiggal, azonban a teljes parancs így néz ki (pl az OVS1-en): `./gns3volumes/init_script/OVS1_config.sh`. Ezzel is ugyan az a script fut, de ekkor figyelni kell minden OVS-en, hogy a megfelelő parancsot adjuk ki, ahol az OVS száma helyes.
 
