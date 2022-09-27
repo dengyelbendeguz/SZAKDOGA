@@ -23,8 +23,5 @@
 
 ### TODO
 - PULL!!!
-- MARCI: ryu működése
-- BENDE: save conifg on OVS and Ryu
-- következő teendők kitűzése
 - projekt feltölteni
 - COMMIT AND PUSH!!!

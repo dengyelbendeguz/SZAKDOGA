@@ -24,4 +24,12 @@ python2 -m pip install --upgrade pip==20.3.4
 hash -r
 pip install networkx
 
+#ssh
+apt -y install openssh-server
+passwd
+gns3
+gns3
+sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
+service ssh start
+service ssh status
 # végül felmásolni a szűkséges fileokat

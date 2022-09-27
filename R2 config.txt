@@ -35,4 +35,17 @@ ip address 192.168.122.22 255.255.255.0
 no shutdown
 ip route 0.0.0.0 0.0.0.0 192.168.122.1
 do ping 8.8.8.8
+!
+exit
+usern cisco pas cisco
+usern cisco priv 15
+lin vty 0 4
+tr i a
+logi loc
+exi
+ip domain-n netautomation.com
+
+cry key gen rsa
+1024
+
 do write
