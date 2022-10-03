@@ -90,6 +90,17 @@ A GNS3 lehetővé teszi konténerek futtatását, azokat előlünk teljesen elfe
 
 A megosztott mappában található tartalom nem veszik el a konténer leállása után sem, és a beállított jogok is megmaradnak.
 
+## Ryu és OVS inicializálás
+
+A perzisztens memóriával nem rendelkező eszközöket elindítás után inicializálni kell.
+Ez megtehető eszközönként kézzel (a [Ryu](#ryu-kontroller) illetve az [OVS](#OVS-switchek) fejezetek végén kifejtett módon),
+vagy a `network_init.sh` script segítségével automatikusan.
+
+A script a GNS3-ban már létrehozott és futó konténerekbe belép `telnet` segítségével és lefuttatja a már felmásolt
+inicializáló scripteket a Ryu kontrolleren és az OVS switcheken.
+
+A kontoroller esetében az inicializáláson felül bemásolja a konténerhez felcsatolt kódokat a `ryu/ryu/app` mappába.
+
 ## Ryu kontroller:
 
 2 interfésze van:
