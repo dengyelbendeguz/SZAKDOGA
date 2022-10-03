@@ -1,0 +1,65 @@
+A hálózat automatizációért a Netwok Appliance node felel a GNS3-ban. Ezen fut többek között az Ansible eszköz is. A node egy docker container, mely nyilvánosan elérhető a docker hivatalos repójából.
+Az Ansible egy hálózat automatizáló eszköz, mely SSH-val csatlakozik a beállítandó eszközökre (pl routerek, switchek), majd YAML fileok segítségével végez azokon módosításokat. #TODO: rizsázni az ansible-ről
+A node alap konfigurálása (ezen videó alapján: https://www.youtube.com/watch?v=jJE6s_C1Rt0):
+
+    Először is internetelérést biztosítunk (DHCP a legeszerűbb, de statikusan is lehet):
+        nano /etc/network/interfaces
+        auto eth0
+        iface eth0 inet dhcp
+
+    Fontos, hogy az Ansible képes node és a managelendő eszközök egy hálózaton legyenek. A legegyszerűbb, ha ez a GNS3 default hálózata, mely a 192.168.122.0/24, és ebből kérünk IP címet DHCP segítégével / statikusan állítunk be. Így tehát minden managelendő eszköz és ansible is látja egymást, és miután a lentebb részletezett SSH is be van állítva, már képes is azokhoz hozzáférni.
+
+    Alapvető programok letöltése:
+        apt update
+        apt install iproute2 # ip a
+        apt install sshpass
+
+    Alapvető ansibele config:
+        nano ansible.cfg
+        [defaults]
+        inventory = ./myhosts
+        host_key_checking = false
+        timeout = 15
+        deprecation_warnings=False
+
+    A myhosts-on keresztül hivatkozunk az eszközökre, pl eléréskor, pingkor:
+        nano myhosts
+        [routers]
+        R1
+        R2
+        R3
+        R4
+        Ryu
+
+    A hostnevek felvétele:
+        nano /etc/hosts
+        #append:
+        192.168.122.11 R1
+        192.168.122.22 R2
+        192.168.122.33 R3
+        192.168.122.44 R4
+        192.168.122.111 Ryu
+
+    Legkésőbb ezen a ponton meg kell győződnünk, hogy a managelendő eszközökön be vannak-e állítva a megfelelő SSH paraméterek (felhasználónév, jelszó, kulcs, engedélyezve/telepítve a megfelelő ssh kliens stb). Az egyes eszközök SSH konfigurálását az adott eszköz konfig file-ja tartalmazza.
+    Ha tehát az eszközök képesek kommunikálni (közös LAN, SSH bekapcsolva), teszeljük is ezeket:
+        ip a
+        cat ansible.cfg
+        cat myhosts
+        cat /etc/hosts
+        ansible --list-hosts all
+        ansible --list-hosts routers
+        ping R1 -c 2
+        ping R2 -c 2
+        ping R3 -c 2
+        ping R4 -c 2
+        ping Ryu -c 2
+
+    Végül 2 egyszerű parancs, mely az ansible képességeit teszteli:
+        # cisco felhasználó névvel belép (a jelszót is meg kell adni a parancs után)
+        # az R1 routerre, majd lekéri az interface adatainak kivonatát
+        ansible R1 -m raw -a "show ip interface brief" -u cisco -k
+
+        # a fentiekhez hasonlóan ez a Ryu eth0 interface adatait kéri le
+        ansible Ryu -m raw -a "ifconfig eth0" -u root -k
+
+Megjegyzés: az OVS-eken nem állítottam be SSH-t, mert jelen feladat célja, hogy az SDN hálózatot a Ryu managelje, tehát ha a hibrid hálózat változik, az SDN változásait a Ryu kezeli, nem az egyes OVS-ek.

@@ -1,0 +1,79 @@
+Megvalósítandó esetek:
+	Interface változások:
+		az OVS-1 - R1 közti hálózati maszk változás
+		az OVS-1 - R1 közti hálózat változás
+		az OVS-1 - R1 közti link lemegy, más irányban mennek tovább a csomagok
+	hálózati maszk ellenőrzése, korrigálása?
+	ehhez valamiféle feltérképezésre is szükség van
+	a fenti esetben, mikor lement a link: routing változás (statikus)
+	opcionális ( = ha marad idő):
+		DHCP:
+		a szerver lemegy, helyette másik legyen
+		dinamikus routing
+			milyen tesztesetek?
+		open source router imagek
+
+./../gns3volumes/ryu_code/RYU_config.sh
+./gns3volumes/init_script/OVS*
+
+ansible R1 -m raw -a "show ip interface brief" -u cisco -k
+ansible Ryu -m raw -a "ifconfig eth0" -u root -k
+
+UPDATE:
+	eddigi haladás dokumentálin
+	ryu config módosítani a gns3 shared folderben
+	commit
+	projectem feltölteni
+
+###########################################################################################
+
+MSC:
+	tájékoztató lesz?
+	szakirányok?
+	jelentkezés menete?
+
+SZAKDOGA:
+	a szakdoga előkészítés dokumentálása térjen el Marciétól
+		(de Marci eltolva írja, mindkettőnk munkája legyen benne, de másra fókuszálva)
+	ryuval foglalkozni
+	alapvetően minden héten konzi, hétfőn megbeszéljük ezt
+	diplomaterv.vik.bme.hu (szept végéig kell a kiírásra jelentkezni)
+	meg kell adni, miből záróvizsgázunk
+	rendszeresen dokumentálni!!!
+	szakdoga vázlata (milyen fejezetekből épül fel, mikről fogok írni, ábrák)
+	szorgalmi hét péntek dél a határidő a beadásra
+	nyomtatni, beköttetni
+	felhasznált weboldalak feljegyezni (forrás)
+	kb 50 oldal + képek + előlap, tartalom stb
+	konfigok is mehetnek bele, ha nem túl sok, a többi a függelékbe
+	jegyzet írni, elég a végén dokumentálni
+	napi több órát ezzel foglalkozni
+	
+ZÁRÓVIZSGA:
+	közös rész: írásbeli
+	speces rész: a szóbeli (ez a diplomavédéskor lesz, a vizsgaidőszakban)
+	speces tárgy: 1-et választahtunk, az szóbeli
+	a téma kiírás után lehet jeletkezni
+	írásbeli rész mikor?
+	téliszönetben készülni
+
+###########################################################################################
+	ÖNLAB JEGYZET (LEGACY) - friss: https://github.com/dengyelbendeguz/SZAKDOGA#readme
+###########################################################################################
+
+más megoldások a hálózat kiépítésére:
+	IPVLAN? (pls no)
+	https://www.youtube.com/watch?v=bKFMS5C4CG0
+	https://gist.github.com/bbl/dad5ea94cdf8f384bb7a47dd4869b2eb
+	https://www.youtube.com/watch?v=nGSNULpHHZc&ab_channel=Docker
+
+ansible (megnézni)
+	tutorial a weboldalon
+	dc linkek kurzushoz (Böősy Pali?)
+	https://developer.cisco.com/learning/labs/ansible-02_ansible-intro/introduction-to-ansible/
+	https://developer.cisco.com/learning/labs/ansible-overview/introduction/
+egy felső réteg az sdn controllernek és az asic-eknek is
+hibrid hálózatok utánanézni
+ieee xplore cikkek (VPN-nel)
+	https://ieeexplore.ieee.org/document/8360763 (LE VAN TÖLTVE!)
+dokumentálni (heti haladás)
