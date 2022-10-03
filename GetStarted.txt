@@ -1,5 +1,0 @@
-To make the RyuOspf code usable, you should copy the files (from "code/") to the downloaded ryu source code, folder: "ryu/ryu/app/"
-
-After this code is inserted you can start it from the ryu manager - as it is written in the thesis. ("ryu-manager sp.py --observe-links | ryu-manager --observe-links RyuOspf.py")
-
-If you want to build the same environment in Linux you just need to run the "scripts/linux_config.sh" script in the bash.

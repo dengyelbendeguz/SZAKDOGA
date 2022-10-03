@@ -25,6 +25,7 @@ hash -r
 pip install networkx
 
 #ssh
+# https://phoenixnap.com/kb/ssh-permission-denied-publickey
 apt -y install openssh-server
 passwd
 gns3

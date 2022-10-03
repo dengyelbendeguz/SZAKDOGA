@@ -1,4 +1,0 @@
-# syntax=docker/dockerfile:1
-FROM osrg/ryu
-WORKDIR /code
-COPY /code .
