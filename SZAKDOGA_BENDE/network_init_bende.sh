@@ -6,8 +6,12 @@
 #   - on switches: runs OVS*_config.sh
 #   - on controller: runs RYU_config.sh and copies ryu_ospf_cs.py to ryu/ryu/app folder
 
+echo "#######################################################"
+echo "PORT changed: 5019 -> 5012"
+echo "#######################################################"
+
 echo "Confirm ports:"
-echo "RYU   5019"
+echo "RYU   5012"
 echo "OVS1  5021"
 echo "OVS2  5023"
 echo "OVS3  5025"
@@ -20,7 +24,7 @@ echo "[+] Initializing Ryu"
   echo "/./../gns3volumes/ryu_code/RYU_config.sh";
   echo "cp /gns3volumes/ryu_code/ryu_ospf_cs.py ~/ryu/ryu/app/ryu_ospf_cs.py";
   sleep 15;
-} | telnet localhost 5019
+} | telnet localhost 5012
 
 #OVS1
 echo "[+] Initializing OVS1"

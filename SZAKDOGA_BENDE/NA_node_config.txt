@@ -1,5 +1,5 @@
 A hálózat automatizációért a Netwok Appliance node felel a GNS3-ban. Ezen fut többek között az Ansible eszköz is. A node egy docker container, mely nyilvánosan elérhető a docker hivatalos repójából.
-Az Ansible egy hálózat automatizáló eszköz, mely SSH-val csatlakozik a beállítandó eszközökre (pl routerek, switchek), majd YAML fileok segítségével végez azokon módosításokat. #TODO: rizsázni az ansible-ről
+Az Ansible egy hálózat automatizáló eszköz, mely SSH-val csatlakozik a beállítandó eszközökre (pl routerek, switchek), majd YAML fileok segítségével végez azokon módosításokat. #TODO: rizsázni az ansible-ről + sshről is
 A node alap konfigurálása (ezen videó alapján: https://www.youtube.com/watch?v=jJE6s_C1Rt0):
 
     Először is internetelérést biztosítunk (DHCP a legeszerűbb, de statikusan is lehet):

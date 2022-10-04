@@ -19,11 +19,13 @@ Megvalósítandó esetek:
 ansible R1 -m raw -a "show ip interface brief" -u cisco -k
 ansible Ryu -m raw -a "ifconfig eth0" -u root -k
 
-UPDATE:
-	eddigi haladás dokumentálin
+TODO:
+	eddigi haladás dokumentálni
 	ryu config módosítani a gns3 shared folderben
 	commit
 	projectem feltölteni
+	SSH kulcsok beállítani, írni róla
+	    https://www.youtube.com/watch?v=d6jTzve7mFY
 
 ###########################################################################################
 
@@ -37,8 +39,6 @@ SZAKDOGA:
 		(de Marci eltolva írja, mindkettőnk munkája legyen benne, de másra fókuszálva)
 	ryuval foglalkozni
 	alapvetően minden héten konzi, hétfőn megbeszéljük ezt
-	diplomaterv.vik.bme.hu (szept végéig kell a kiírásra jelentkezni)
-	meg kell adni, miből záróvizsgázunk
 	rendszeresen dokumentálni!!!
 	szakdoga vázlata (milyen fejezetekből épül fel, mikről fogok írni, ábrák)
 	szorgalmi hét péntek dél a határidő a beadásra
