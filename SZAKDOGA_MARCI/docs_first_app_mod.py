@@ -10,7 +10,7 @@ class L2Switch(app_manager.RyuApp):
     def __init__(self, *args, **kwargs):
         super(L2Switch, self).__init__(*args, **kwargs)
 
-    @set_ev_cls(ofp_event.EventOFPPacketIn)
+    #@set_ev_cls(ofp_event.EventOFPPacketIn)
     def packet_in_handler(self, ev):
         pass
         msg = ev.msg
@@ -40,3 +40,5 @@ class L2Switch(app_manager.RyuApp):
             print('(entering)')
         else:
             print('(leaving)')
+
+### TODO DOC: ryu-manager --app-lists [app1.py] [app2.py]
