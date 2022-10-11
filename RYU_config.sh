@@ -27,8 +27,6 @@ pip install networkx
 # SSH
 # https://phoenixnap.com/kb/ssh-permission-denied-publickey
 apt -y install openssh-server
-# service ssh start
-# service ssh status
 # a jelszót meg kell változtatni 1x kézzel,pl:
 #   passwd
 #   gns3
@@ -36,5 +34,7 @@ apt -y install openssh-server
 # és kézzel módosítani a /etc/ssh/sshd_config filet (egy jó példa file a repóban: sshd_config.good):
 #   PermitRootLogin yes
 #   PasswordAuthentication yes
-# cp /etc/ssh/sshd_config /gns3volumes/ryu_code/sshd_config.good
-# végül felmásolni a szűkséges fileokat
+# vagy a jót átmásolni: cp /etc/ssh/sshd_config /gns3volumes/ryu_code/sshd_config.good
+# service ssh start
+# service ssh status
+# végül felmásolni a szűkséges fileokat (code mappa)

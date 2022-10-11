@@ -6,6 +6,7 @@ TODO: az ssh szerepéről az ansibleben
 Jelen projektben az NetworAutomation eszközön (NA node) futó Ansibel hálózat kofigurációs környezet szempontjából lényeges az SSH ismertetése.
 Az Ansible a konfigurálandó eszközökkel SSH segítségével kommunikál. Ebből követekzik, hogy az eszközöknek (a 4 router és a Ryu kontroller) SSH képesek legyenek.
 Ehhez az eszközöket konfigurálni kell, melyet alább ismertetek:
+
     A Cisco routereken a konfiguráció az alábbi (amit az egyes routerek konfigurációja tartalmaz már
         - felhasználónév és jelszó a hozzáféréshez: username cisco password cisco
         - jogosultság szintjének beállítása: username cisco privilege 15
@@ -17,6 +18,22 @@ Ehhez az eszközöket konfigurálni kell, melyet alább ismertetek:
         - RSA kulcs generálás: crypt key generate rsa 1024
         - ezzel fel is készítettük a routert az SSH kommunikációra
 
+    A Ryu kontroller SSH konfigja:
+        - hasznos segítség, ha elakadunk: https://phoenixnap.com/kb/ssh-permission-denied-publickey
+        - az "apt -y install openssh-server" paranccsal telepítjük a szükséges programot
+        - a jleszót változtassuk meg a linuxon, hogy biztosan tudjuk, mit fogunk megadni:
+            -ehhez először a "passwd" parancsot  adjuk ki a terminálban, majd 2x írjuk le az általunk választott jelszót, pl:
+                passwd
+                gns
+                gns3
+        - az OpenSSH-server legfontosabb konfig file-ja a /etc/ssh/sshd_config
+        - ezt azonban módosítanunk kell, mert root felhasználóként nem enged be alapból, illetve a jelszavas beléptetést is engedélyeznünk kell (PermitRootLogin yes, PasswordAuthentication yes)
+            - egy működő, általam már módosított konfig megtalálható SZAKDOGA repóban (itt) "sshd_config.good" néven
+            - ezt a Ryu nodeon a "cp /gns3volumes/ryu_code/sshd_config.good /etc/ssh/sshd_config" paranccsal tudjuk átmásolni (ha a megfelelő helyen megtalálható)
+        - végül a "service ssh start" paranccsal elindítjuk az SSH servert, mely futásának állapotárol meggyőződhetünk a "service ssh status" paranccsal
+
+    Figyelem! Az SSH az NA noderól addig nem fog működni, míg nincs ki fogadja, azaz a feljebb leírton eszközök nincsenek felkészítve.
+    Ha azok SSH konfigurációja megtörtént, akkor térjünk rá az NA node konfigjára.
 
     Az NA node (Ansible) SSH beállítása az alábbi:
         - hasznos segítség, ha elakadunk: https://www.youtube.com/watch?v=d6jTzve7mFY
@@ -28,5 +45,8 @@ Ehhez az eszközöket konfigurálni kell, melyet alább ismertetek:
             - ez a "~/.ssh/id_rsa.pub" filet készíte el, mely a titkosításhoz szükséges RSA kulcspár nyilvános kulcs
             - ezt felmásoljuk a "ssh-copy-id <hostname/IP_address> paranccsal a megadott céleszközre
             Figyelem: a Ryu kontroller (miután linuxon fut) képes fogadni ezt a parancsot, azonban a routerek nem képesek erre, így azoknál marad a jelszavas bejelentkezés
-        - ha egyszerű SSH kapcsoaltot szretnénk létesíteni az eszközökkel (tehát nem Ansible-n keresztül) azt a "ssh <username>@<hostname/IP_address>" paranccsal tehetjük meg
+        	- ezután megy jelszó nélül is az elérés, pl:
+            	    "ssh Ryu"
+            	    "ansible Ryu -m raw -a "ifconfig eth0"
+        - ha egyszerű SSH kapcsolatot szeretnénk létesíteni az eszközökkel (tehát nem Ansible-n keresztül) azt a "ssh <username>@<hostname/IP_address>" paranccsal tehetjük meg
             - ehhez telepíteni kell a "apt install sshpass" paranccsal az sshpass programot

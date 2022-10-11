@@ -63,4 +63,7 @@ A node alap konfigurálása (ezen videó alapján: https://www.youtube.com/watch
         # a fentiekhez hasonlóan ez a Ryu eth0 interface adatait kéri le
         ansible Ryu -m raw -a "ifconfig eth0" -u root -k
 
+    A jelszó nélküli SSH hozzáférést a Ryu kontrolleren sikerült megvalósítani, a Cisco imagek nem ismerik még ennek módját, így azokon a jelszavas hozzáférés működik.
+    Az idevágó extra SSH beállítások az "SSH in the project" fileban vannak kifejtve.
+
 Megjegyzés: az OVS-eken nem állítottam be SSH-t, mert jelen feladat célja, hogy az SDN hálózatot a Ryu managelje, tehát ha a hibrid hálózat változik, az SDN változásait a Ryu kezeli, nem az egyes OVS-ek.

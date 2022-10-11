@@ -24,7 +24,7 @@ echo "[+] Initializing Ryu"
   echo "/./../gns3volumes/ryu_code/RYU_config.sh";
   echo "cp /gns3volumes/ryu_code/ryu_ospf_cs.py ~/ryu/ryu/app/ryu_ospf_cs.py";
   echo "cp /gns3volumes/ryu_code/sshd_config.good ~/etc/ssh/sshd_config";
-  sleep 15;
+  sleep 20;
 } | telnet localhost 5012
 
 #OVS1

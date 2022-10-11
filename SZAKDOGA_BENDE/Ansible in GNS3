@@ -1,0 +1,9 @@
+TODO: leírás az ansible és gns 3 kapcsolatáról
+      Ansiblerol irni
+      Yamlrol irni
+
+Hasznos gyorstalpaló kurzus: https://www.youtube.com/watch?v=5orFsZ_rc3Y&list=PLhHT1w6sU7CNTWfuy9ipuekLRAjSMrZqI
+ansible in general: https://www.ansible.com/integrations/networks
+Cisco IOS asnible modules: https://docs.ansible.com/ansible/latest/collections/cisco/ios/
+3. Video, tobb hostra futtatott paranvs
+4. Video

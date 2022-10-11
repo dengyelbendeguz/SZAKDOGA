@@ -13,79 +13,29 @@ Megvalósítandó esetek:
 			milyen tesztesetek?
 		open source router imagek
 
+###########################################################################################
+
 ./../gns3volumes/ryu_code/RYU_config.sh
 ./gns3volumes/init_script/OVS*
 
 ansible R1 -m raw -a "show ip interface brief" -u cisco -k
 ansible Ryu -m raw -a "ifconfig eth0" -u root -k
 
+ssh Ryu
+ansible Ryu -m raw -a "ifconfig eth0"
+
+###########################################################################################
 TODO:
-	eddigi haladás dokumentálni
-	ryu config módosítani a gns3 shared folderben
-	commit
-	projectem feltölteni
-	SSH kulcsok beállítani, írni róla
-	netwrok_init_bende.sh
-	service ssh start
-	sshd_config.good copy
-	passwd
-	    gns3
-	    gns3
-	service ssh restart
-	ssh-copy.id Ryu után megy jelszó nélül is:
-    	    ssh Ryu
-    	    ansible Ryu -m raw -a "ifconfig eth0"
-
-	IEEE cikk:
-	    file:///media/bende/Storage/BME/VI.%20F%C3%A9l%C3%A9v/%C3%96nlab/Hybrid_SDN_Networks_A_Survey_of_Existing_Approaches.pdf
-    	B. Parsing and Configuration Translation
-    	C. Controllers for Cloud and Data Center Networks
-	    Exodus
-	    B. Auto-Configuration
-
-    Ansible in GNS3:
-        hasznos gyorstalpaló kurzus: https://www.youtube.com/watch?v=5orFsZ_rc3Y&list=PLhHT1w6sU7CNTWfuy9ipuekLRAjSMrZqI
-        ansible in general: https://www.ansible.com/integrations/networks
-        Cisco IOS asnible modules: https://docs.ansible.com/ansible/latest/collections/cisco/ios/
-        Etc host config elveszik leallitas utan?
-        3. Video, tobb hostra futtatott paranvs
-        Ansiblerol irni
-        Yamlrol irni
-        4. Video
-
-    Ryu:
-        https://ryu.readthedocs.io/en/latest/index.html
-        https://book.ryu-sdn.org/en/Ryubook.pdf
-        https://speakerdeck.com/nzpug/ewen-mcneill-seize-control-of-your-network-with-ryu
-        Ryu topology viewer web gui: https://www.youtube.com/watch?v=Q68tGhubqh8&list=PLIaCSU6kgAqYcA8MZSVkJqZ8uPdOJ38fD&index=6
-
     ansible példák cisco routerekre
     ha ezeke mennek: ryu kontroller példák ovs-ekre (routerként viselkedés pl)
     ha ez is megvan: ansible ryura
     Kesz ansibel modulok cisco, ryu
     northbound interface ryu: egy app már fut, korábbit lekapcs/másikat hozzáadni
+    SZAKDOGA KIÍRÁSNAK MEGFELELNI (a pontokat teljesíteni)
 
-
-###########################################################################################
-
-MSC:
-	tájékoztató lesz?
-	szakirányok?
-	jelentkezés menete?
-
-SZAKDOGA:
-	a szakdoga előkészítés dokumentálása térjen el Marciétól (de Marci eltolva írja, mindkettőnk munkája legyen benne, de másra fókuszálva)
-	szakdoga vázlata (milyen fejezetekből épül fel, mikről fogok írni, ábrák)
-	szorgalmi hét péntek dél a határidő a beadásra
-	nyomtatni, beköttetni
-	felhasznált weboldalak feljegyezni (forrás)
-	kb 50 oldal + képek + előlap, tartalom stb
-	konfigok is mehetnek bele, ha nem túl sok, a többi a függelékbe
-
-ZÁRÓVIZSGA:
-	közös rész: írásbeli
-	speces rész: a szóbeli (ez a diplomavédéskor lesz, a vizsgaidőszakban)
-	speces tárgy: 1-et választahtunk, az szóbeli
-	a téma kiírás után lehet jeletkezni
-	írásbeli rész mikor?
-	téliszönetben készülni
+IEEE cikk:
+    file:///media/bende/Storage/BME/VI.%20F%C3%A9l%C3%A9v/%C3%96nlab/Hybrid_SDN_Networks_A_Survey_of_Existing_Approaches.pdf
+    B. Parsing and Configuration Translation
+    C. Controllers for Cloud and Data Center Networks
+    Exodus
+    B. Auto-Configuration
