@@ -25,7 +25,46 @@ TODO:
 	commit
 	projectem feltölteni
 	SSH kulcsok beállítani, írni róla
-	    https://www.youtube.com/watch?v=d6jTzve7mFY
+	netwrok_init_bende.sh
+	service ssh start
+	sshd_config.good copy
+	passwd
+	    gns3
+	    gns3
+	service ssh restart
+	ssh-copy.id Ryu után megy jelszó nélül is:
+    	    ssh Ryu
+    	    ansible Ryu -m raw -a "ifconfig eth0"
+
+	IEEE cikk:
+	    file:///media/bende/Storage/BME/VI.%20F%C3%A9l%C3%A9v/%C3%96nlab/Hybrid_SDN_Networks_A_Survey_of_Existing_Approaches.pdf
+    	B. Parsing and Configuration Translation
+    	C. Controllers for Cloud and Data Center Networks
+	    Exodus
+	    B. Auto-Configuration
+
+    Ansible in GNS3:
+        hasznos gyorstalpaló kurzus: https://www.youtube.com/watch?v=5orFsZ_rc3Y&list=PLhHT1w6sU7CNTWfuy9ipuekLRAjSMrZqI
+        ansible in general: https://www.ansible.com/integrations/networks
+        Cisco IOS asnible modules: https://docs.ansible.com/ansible/latest/collections/cisco/ios/
+        Etc host config elveszik leallitas utan?
+        3. Video, tobb hostra futtatott paranvs
+        Ansiblerol irni
+        Yamlrol irni
+        4. Video
+
+    Ryu:
+        https://ryu.readthedocs.io/en/latest/index.html
+        https://book.ryu-sdn.org/en/Ryubook.pdf
+        https://speakerdeck.com/nzpug/ewen-mcneill-seize-control-of-your-network-with-ryu
+        Ryu topology viewer web gui: https://www.youtube.com/watch?v=Q68tGhubqh8&list=PLIaCSU6kgAqYcA8MZSVkJqZ8uPdOJ38fD&index=6
+
+    ansible példák cisco routerekre
+    ha ezeke mennek: ryu kontroller példák ovs-ekre (routerként viselkedés pl)
+    ha ez is megvan: ansible ryura
+    Kesz ansibel modulok cisco, ryu
+    northbound interface ryu: egy app már fut, korábbit lekapcs/másikat hozzáadni
+
 
 ###########################################################################################
 
@@ -35,20 +74,14 @@ MSC:
 	jelentkezés menete?
 
 SZAKDOGA:
-	a szakdoga előkészítés dokumentálása térjen el Marciétól
-		(de Marci eltolva írja, mindkettőnk munkája legyen benne, de másra fókuszálva)
-	ryuval foglalkozni
-	alapvetően minden héten konzi, hétfőn megbeszéljük ezt
-	rendszeresen dokumentálni!!!
+	a szakdoga előkészítés dokumentálása térjen el Marciétól (de Marci eltolva írja, mindkettőnk munkája legyen benne, de másra fókuszálva)
 	szakdoga vázlata (milyen fejezetekből épül fel, mikről fogok írni, ábrák)
 	szorgalmi hét péntek dél a határidő a beadásra
 	nyomtatni, beköttetni
 	felhasznált weboldalak feljegyezni (forrás)
 	kb 50 oldal + képek + előlap, tartalom stb
 	konfigok is mehetnek bele, ha nem túl sok, a többi a függelékbe
-	jegyzet írni, elég a végén dokumentálni
-	napi több órát ezzel foglalkozni
-	
+
 ZÁRÓVIZSGA:
 	közös rész: írásbeli
 	speces rész: a szóbeli (ez a diplomavédéskor lesz, a vizsgaidőszakban)
@@ -56,24 +89,3 @@ ZÁRÓVIZSGA:
 	a téma kiírás után lehet jeletkezni
 	írásbeli rész mikor?
 	téliszönetben készülni
-
-###########################################################################################
-	ÖNLAB JEGYZET (LEGACY) - friss: https://github.com/dengyelbendeguz/SZAKDOGA#readme
-###########################################################################################
-
-más megoldások a hálózat kiépítésére:
-	IPVLAN? (pls no)
-	https://www.youtube.com/watch?v=bKFMS5C4CG0
-	https://gist.github.com/bbl/dad5ea94cdf8f384bb7a47dd4869b2eb
-	https://www.youtube.com/watch?v=nGSNULpHHZc&ab_channel=Docker
-
-ansible (megnézni)
-	tutorial a weboldalon
-	dc linkek kurzushoz (Böősy Pali?)
-	https://developer.cisco.com/learning/labs/ansible-02_ansible-intro/introduction-to-ansible/
-	https://developer.cisco.com/learning/labs/ansible-overview/introduction/
-egy felső réteg az sdn controllernek és az asic-eknek is
-hibrid hálózatok utánanézni
-ieee xplore cikkek (VPN-nel)
-	https://ieeexplore.ieee.org/document/8360763 (LE VAN TÖLTVE!)
-dokumentálni (heti haladás)

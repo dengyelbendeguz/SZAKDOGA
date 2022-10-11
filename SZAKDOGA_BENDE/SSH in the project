@@ -1,0 +1,32 @@
+SSH és annak szerepe a projectben:
+
+TODO: az ssh protocolról írni
+TODO: az ssh szerepéről az ansibleben
+
+Jelen projektben az NetworAutomation eszközön (NA node) futó Ansibel hálózat kofigurációs környezet szempontjából lényeges az SSH ismertetése.
+Az Ansible a konfigurálandó eszközökkel SSH segítségével kommunikál. Ebből követekzik, hogy az eszközöknek (a 4 router és a Ryu kontroller) SSH képesek legyenek.
+Ehhez az eszközöket konfigurálni kell, melyet alább ismertetek:
+    A Cisco routereken a konfiguráció az alábbi (amit az egyes routerek konfigurációja tartalmaz már
+        - felhasználónév és jelszó a hozzáféréshez: username cisco password cisco
+        - jogosultság szintjének beállítása: username cisco privilege 15
+        - a virtuális interfészek konfigja, melyeken keresztül elérhetjük a routert: line vty 0 4
+            - a hozzáférés módja (több protokollt is megengedünk, pl SSH, telnet): transport input all
+            - helyi bejelentkezés szükséges: login local
+            - az interfész konfig promt elhagyása további beállításokhoz: exit
+        - domain név beállítása (szükséges az SSH-hoz): ip domain-name netautomation.com
+        - RSA kulcs generálás: crypt key generate rsa 1024
+        - ezzel fel is készítettük a routert az SSH kommunikációra
+
+
+    Az NA node (Ansible) SSH beállítása az alábbi:
+        - hasznos segítség, ha elakadunk: https://www.youtube.com/watch?v=d6jTzve7mFY
+        - ha nem rendelkezik valamiféle ssh szerverrel, akkor azt le kell tölteni (de a GNS3 által előre beállított NA node ezt már tudja), pl. a "apt -y install openssh-server" pranccsal
+        - ekkor az Ansible már képes a saját parancsaival SSH kapcsolatot létesíteni (ha a cél eszköz is készen áll erre, azaz fut valamiféle SSH kliens rajta), de az "ssh <username>@<hostname/IP_address>" paranccsal pl. nem éri el a céleszközt, illetve mindig a céleszközön beállított jelszóval kell belépni
+        Megjegyzés: az SSH többféle hozzáférésre ad lehetőséget, mint pl. jelszó, ujjlenyomat, publikus kulcs
+        - bevett gyakorlat, hogy ne kelljen mindig jelszót használni, hogy az üzenetek titkosítására használt kulcspár nyilvános kulcsát a céleszközre juttatjuk, így nem kell jelszó a kapcsolathoz (legalábbis nem kell kézzel beírni, hiszen már el van tárolva a céleszközön, biztonságos formában):
+            - ehhez először generálnunk kell egy publikus kulcsot az NA nodeon: "ssh-keygen -t rsa"
+            - ez a "~/.ssh/id_rsa.pub" filet készíte el, mely a titkosításhoz szükséges RSA kulcspár nyilvános kulcs
+            - ezt felmásoljuk a "ssh-copy-id <hostname/IP_address> paranccsal a megadott céleszközre
+            Figyelem: a Ryu kontroller (miután linuxon fut) képes fogadni ezt a parancsot, azonban a routerek nem képesek erre, így azoknál marad a jelszavas bejelentkezés
+        - ha egyszerű SSH kapcsoaltot szretnénk létesíteni az eszközökkel (tehát nem Ansible-n keresztül) azt a "ssh <username>@<hostname/IP_address>" paranccsal tehetjük meg
+            - ehhez telepíteni kell a "apt install sshpass" paranccsal az sshpass programot

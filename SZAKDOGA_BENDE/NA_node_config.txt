@@ -6,6 +6,7 @@ A node alap konfigurálása (ezen videó alapján: https://www.youtube.com/watch
         nano /etc/network/interfaces
         auto eth0
         iface eth0 inet dhcp
+    Ez eltarthat egy ideig, ezért várjuk a node elindulásakor a későbbiekben, hiszen minden indláskor (is) IP címet kér.
 
     Fontos, hogy az Ansible képes node és a managelendő eszközök egy hálózaton legyenek. A legegyszerűbb, ha ez a GNS3 default hálózata, mely a 192.168.122.0/24, és ebből kérünk IP címet DHCP segítégével / statikusan állítunk be. Így tehát minden managelendő eszköz és ansible is látja egymást, és miután a lentebb részletezett SSH is be van állítva, már képes is azokhoz hozzáférni.
 
