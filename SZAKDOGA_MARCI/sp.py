@@ -51,6 +51,7 @@ from ryu.topology import event, switches
 import networkx as nx
 
 
+
 class ProjectController(app_manager.RyuApp):
     OFP_VERSIONS = [ofproto_v1_0.OFP_VERSION]
 
@@ -84,7 +85,7 @@ class ProjectController(app_manager.RyuApp):
         )
         datapath.send_msg(mod)
 
-    @set_ev_cls(ofp_event.EventOFPPacketIn, MAIN_DISPATCHER)
+    # @set_ev_cls(ofp_event.EventOFPPacketIn, MAIN_DISPATCHER)
     def _packet_in_handler(self, ev):
         msg = ev.msg
         datapath = msg.datapath
@@ -140,12 +141,12 @@ class ProjectController(app_manager.RyuApp):
         switches = [switch.dp.id for switch in switch_list]
         self.net.add_nodes_from(switches)
 
-        # print "**********List of switches"
-        # for switch in switch_list:
-        # self.ls(switch)
-        # print switch
-        # self.nodes[self.no_of_nodes] = switch
-        # self.no_of_nodes += 1
+        print "**********List of switches"
+        for switch in switch_list:
+            # self.ls(switch)
+            print switch
+            self.nodes[self.no_of_nodes] = switch
+            self.no_of_nodes += 1
 
         links_list = get_link(self.topology_api_app, None)
         # print links_list
@@ -157,11 +158,6 @@ class ProjectController(app_manager.RyuApp):
         self.net.add_edges_from(links)
         print "**********List of links"
         print self.net.edges()
-        # for link in links_list:
-            # print link.dst
-            # print link.src
-            # print "Novo link"
-            # self.no_of_links += 1
 
         # print "@@@@@@@@@@@@@@@@@Printing both arrays@@@@@@@@@@@@@@@"
         # for node in self.nodes:
