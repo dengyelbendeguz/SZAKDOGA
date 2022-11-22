@@ -34,6 +34,7 @@ An OpenFlow 1.0 shortest path forwarding implementation.
 
 import logging
 import struct
+import time
 
 from ryu.base import app_manager
 from ryu.controller import mac_to_port
@@ -98,10 +99,6 @@ class ProjectController(app_manager.RyuApp):
         src = eth.src
         dpid = datapath.id
         self.mac_to_port.setdefault(dpid, {})
-        # print "nodes"
-        # print self.net.nodes()
-        # print "edges"
-        # print self.net.edges()
         # self.logger.info("packet in %s %s %s %s", dpid, src, dst, msg.in_port)
         if src not in self.net:
             self.net.add_node(src)
@@ -116,7 +113,9 @@ class ProjectController(app_manager.RyuApp):
             path = nx.shortest_path(self.net, src, dst)
             # TODO remove
             print("##########\n")
+            print("src: ", src)
             print(path)
+            print("dst: ", dst)
             print("\n##########")
             next = path[path.index(dpid) + 1]
             out_port = self.net[dpid][next]['port']
@@ -142,30 +141,29 @@ class ProjectController(app_manager.RyuApp):
         self.net.add_nodes_from(switches)
 
         print "**********List of switches"
+        self.no_of_nodes = 0
         for switch in switch_list:
-            # self.ls(switch)
             print switch
+            print ""
             self.nodes[self.no_of_nodes] = switch
             self.no_of_nodes += 1
 
+        time.sleep(1)
         links_list = get_link(self.topology_api_app, None)
-        # print links_list
-        links = [(link.src.dpid, link.dst.dpid, {'port': link.src.port_no}) for link in links_list]
-        # print links
-        self.net.add_edges_from(links)
         links = [(link.dst.dpid, link.src.dpid, {'port': link.dst.port_no}) for link in links_list]
-        # print links
         self.net.add_edges_from(links)
+
+        # print links
         print "**********List of links"
         print self.net.edges()
 
-        # print "@@@@@@@@@@@@@@@@@Printing both arrays@@@@@@@@@@@@@@@"
-        # for node in self.nodes:
-        #    print self.nodes[node]
-        # for link in self.links:
-        #    print self.links[link]
-        # print self.no_of_nodes
-        # print self.no_of_links
+        if self.no_of_nodes == 4:
+            print("\nsp between nodes 0 and 1/2/3")
+            print nx.shortest_path(self.net, list(self.net.nodes)[0], list(self.net.nodes)[1])
+            print nx.shortest_path(self.net, list(self.net.nodes)[0], list(self.net.nodes)[2])
+            print nx.shortest_path(self.net, list(self.net.nodes)[0], list(self.net.nodes)[3])
+        print "\n"
+
 
     # @set_ev_cls(event.EventLinkAdd)
     # def get_links(self, ev):
